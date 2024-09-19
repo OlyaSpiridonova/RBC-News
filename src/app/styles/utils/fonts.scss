@@ -1,0 +1,6 @@
+@include newFont($mainFontFamily, 'NeueHaasUnica-Regular', 400);
+@include newFont($mainFontFamily, 'NeueHaasUnica-Medium', 500);
+@include newFont($mainFontFamily, 'NeueHaasUnica-Bold', 700);
+@include newFont($mainFontFamily, 'NeueHaasUnica-Black', 900);
+
+@include newFont($decorationFontFamily, 'TinkoffSans-Bold', 700);

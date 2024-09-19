@@ -1,0 +1,39 @@
+{
+  "name": "test_project_first",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "format": "prettier --write src/"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "pinia": "^2.2.2",
+    "vite-plugin-vue3-bem": "^1.0.12",
+    "vue": "^3.4.37",
+    "vue-router": "^4.4.5",
+    "vue3-bem": "^1.0.8"
+  },
+  "devDependencies": {
+    "@feature-sliced/eslint-config": "^0.1.1",
+    "@rushstack/eslint-patch": "^1.10.4",
+    "@types/node": "^22.5.5",
+    "@vitejs/plugin-vue": "^5.1.2",
+    "@vue/eslint-config-prettier": "^9.0.0",
+    "@vue/eslint-config-typescript": "^13.0.0",
+    "@vue/tsconfig": "^0.5.1",
+    "eslint": "^8.57.1",
+    "eslint-plugin-vue": "^9.28.0",
+    "node-sass": "^9.0.0",
+    "prettier": "^3.3.3",
+    "sass": "^1.79.1",
+    "sass-loader": "^16.0.1",
+    "typescript": "^5.5.3",
+    "vite": "^5.4.1",
+    "vue-tsc": "^2.0.29"
+  }
+}
