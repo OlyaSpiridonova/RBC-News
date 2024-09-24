@@ -1,2 +1,7 @@
 @import './utils/reset.scss';
 @import './utils/vars/colors.scss';
+
+@import '../../shared/shared.scss';
+@import '../../entities/entities.scss';
+@import '../../pages/pages.scss';
+@import '../../widgets/widgets.scss';

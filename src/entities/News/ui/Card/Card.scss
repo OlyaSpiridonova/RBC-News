@@ -1,0 +1,44 @@
+.card {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    min-height: 80px;
+    &-category {
+      background-color: var(--middle-green);
+      padding: 8px;
+      border-radius: 4px;
+    }
+    &-date {
+      color: var(--grey-middle);
+      font-size: 12px;
+    }
+    &-autor {
+      color: var(--grey-middle);
+      font-size: 12px;
+    }
+    &-info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: end;
+    }
+  }
+  &__title {
+    color: var(--dark);
+    font-size: 16px;
+    font-weight: 600;
+  }
+  &__anons {
+    color: var(--grey-middle);
+    font-size: 12px;
+  }
+  &__empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--grey);
+    height: 100%;
+  }
+}

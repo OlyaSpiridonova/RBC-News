@@ -56,6 +56,9 @@ const onErrorResponse = (error: AxiosError | Error): Promise<AxiosError> => {
 
 const baseApi = axios.create({
   baseURL: config.baseURL,
+  headers: {
+    'Access-Control-Allow-Origin': '*',
+  },
 })
 
 baseApi.interceptors.request.use(onRequest, onErrorResponse)

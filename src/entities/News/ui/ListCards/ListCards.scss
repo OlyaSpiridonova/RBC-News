@@ -1,0 +1,10 @@
+.list-cards {
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px;
+    width: 100%;
+    gap: 8px;
+  }
+}

@@ -1,1 +1,3 @@
-export enum Stores {}
+export enum Stores {
+  NEWS = 'news',
+}
