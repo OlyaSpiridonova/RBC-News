@@ -15,7 +15,33 @@
     <div class="d-flex flex-no-wrap justify-space-between align-center pa-2">
       <span class="news-view__title">{{ currentNews?.title }}</span>
     </div>
-    <v-img :src="currentNews?.['rbc_news:image']?.['rbc_news:url']" cover />
+    <div
+      class="news-view__image"
+      @mouseenter="isHovered = true"
+      @mouseleave="isHovered = false"
+    >
+      <v-img :src="currentNews?.['rbc_news:image']?.['rbc_news:url']" cover />
+      <v-btn
+        v-if="isHovered"
+        class="news-view__image-button"
+        icon="mdi mdi-image-search"
+        position="absolute"
+        @click="dialog = true"
+      />
+    </div>
+
+    <v-dialog v-model="dialog" width="100vw">
+      <v-card max-width="1200" position="relative">
+        <v-btn
+          class="ms-auto news-view__close"
+          icon="mdi mdi-close"
+          position="absolute"
+          @click="dialog = false"
+        ></v-btn>
+        <v-img :src="currentNews?.['rbc_news:image']?.['rbc_news:url']" cover />
+      </v-card>
+    </v-dialog>
+
     <div class="news-view-formatted-text pa-2">
       {{ decodeHtml(newsText) }}
     </div>
@@ -24,7 +50,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { type NewsItem } from '@/entities'
 import { decodeHtml } from '@/shared'
@@ -37,6 +63,8 @@ const route = useRoute()
 const props = defineProps<NewsViewCardProps>()
 
 const currentNews = computed(() => props.currentNews)
+const isHovered = ref(false)
+const dialog = ref(false)
 
 const newsText = computed(() => {
   return currentNews.value?.['rbc_news:full-text'] || ''

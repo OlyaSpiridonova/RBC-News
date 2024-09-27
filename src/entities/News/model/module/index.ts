@@ -2,7 +2,6 @@ import { defineStore } from 'pinia'
 import { reactive, ref } from 'vue'
 import { Stores } from '@/shared'
 import { fetchNews } from '../../api'
-import axios from 'axios'
 import { XMLParser } from 'fast-xml-parser'
 import type { NewsItem } from '../../lib'
 
@@ -20,9 +19,8 @@ export const useNewsStore = defineStore(Stores.NEWS, () => {
       const response = await fetchNews()
       const xml = response.data
       const parser = new XMLParser()
-      const rssData = parser.parse(xml)
+      const rssData = await parser.parse(xml)
       state.news = rssData.rss.channel.item
-      console.log('Parsed RSS:', state.news[0])
     } catch (error) {
       console.error('Ошибка при загрузке RSS:', error)
     }

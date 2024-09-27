@@ -21,7 +21,6 @@
       />
     </v-col>
   </v-row>
-  <!-- Кнопки управления страницами -->
   <div v-if="totalPages > 1" class="list-cards__pagination">
     <v-btn @click="prevPage" :disabled="currentPage === 1">Назад</v-btn>
     <span>Страница {{ currentPage }} из {{ totalPages }}</span>

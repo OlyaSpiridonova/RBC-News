@@ -1,3 +1,3 @@
-import ListCards, { type ListCardsProps } from './ListCards.vue'
+import ListCards from './ListCards.vue'
 
-export { ListCards, type ListCardsProps }
+export { ListCards }
