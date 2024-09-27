@@ -30,7 +30,7 @@
       />
     </div>
 
-    <v-dialog v-model="dialog" width="100vw">
+    <v-dialog v-model="dialog" width="80vw" height="100vh">
       <v-card max-width="1200" position="relative">
         <v-btn
           class="ms-auto news-view__close"
