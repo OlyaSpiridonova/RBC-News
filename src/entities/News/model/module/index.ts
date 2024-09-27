@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { reactive, ref } from 'vue'
-import { baseApi, Stores } from '@/shared'
+import { Stores } from '@/shared'
 import { fetchNews } from '../../api'
 import axios from 'axios'
 import { XMLParser } from 'fast-xml-parser'
@@ -45,9 +45,18 @@ export const useNewsStore = defineStore(Stores.NEWS, () => {
     state.news = filteredNews
   }
 
+  const sortedNewsByDate = (ascending: boolean) => {
+    const res = state.news.sort((a, b) => {
+      const dateA = new Date(a.pubDate).getTime()
+      const dateB = new Date(b.pubDate).getTime()
+      return ascending ? dateB - dateA : dateA - dateB
+    })
+  }
+
   return {
     state,
     setNews,
     searchByNews,
+    sortedNewsByDate,
   }
 })

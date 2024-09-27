@@ -1,0 +1,14 @@
+.relevant-news {
+  &__title {
+    color: var(--dark);
+    font-weight: 600;
+    font-size: 18px;
+  }
+  &__card {
+    &-title {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 8px;
+    }
+  }
+}

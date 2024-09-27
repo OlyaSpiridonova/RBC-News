@@ -1,5 +1,9 @@
 .navbar {
   &__title {
     color: var(--white);
+    &:hover {
+      cursor: pointer;
+      color: var(--dark);
+    }
   }
 }

@@ -17,10 +17,9 @@ export type SearchInputProps = {
   isVisibleSearch: boolean
   label: string
 }
-
-const props = defineProps<SearchInputProps>()
-
 const { searchByNews } = useNewsStore()
+
+defineProps<SearchInputProps>()
 
 const search = ref('')
 </script>

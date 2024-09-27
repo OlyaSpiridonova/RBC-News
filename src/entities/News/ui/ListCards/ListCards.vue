@@ -1,5 +1,8 @@
 <template>
-  <v-row>
+  <v-btn class="my-4" @click="toggleSortOrder">
+    {{ isAscending ? 'Сначала новые' : 'Сначала старые' }}
+  </v-btn>
+  <v-row class="py-4">
     <v-col
       cols="6"
       md="6"
@@ -7,6 +10,7 @@
       :key="news['rbc_news:news_id']"
     >
       <card-component
+        :id="news['rbc_news:news_id']"
         :title="news.title"
         :category="news.category"
         :date="news['rbc_news:date']"
@@ -32,31 +36,29 @@ import { computed, ref } from 'vue'
 import { useNewsStore } from '../../model/module'
 import { Card as CardComponent } from '@/entities'
 
-// Количество новостей на странице
+const { state, sortedNewsByDate } = useNewsStore()
+
+const isAscending = ref(true)
 const newsPerPage = 4
 const currentPage = ref(1)
 
-const { state } = useNewsStore()
-
-// Подсчет общего количества страниц
+const toggleSortOrder = () => {
+  isAscending.value = !isAscending.value
+  sortedNewsByDate(isAscending.value)
+}
 const totalPages = computed(() => {
   return Math.ceil(state.news.length / newsPerPage)
 })
-
-// Фильтр новостей для текущей страницы
 const paginatedNews = computed(() => {
   const startIndex = (currentPage.value - 1) * newsPerPage
   const endIndex = startIndex + newsPerPage
   return state.news.slice(startIndex, endIndex)
 })
-
-// Функции для переключения страниц
 const nextPage = () => {
   if (currentPage.value < totalPages.value) {
     currentPage.value++
   }
 }
-
 const prevPage = () => {
   if (currentPage.value > 1) {
     currentPage.value--

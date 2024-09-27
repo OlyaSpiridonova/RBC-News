@@ -27,7 +27,7 @@ export type NewsImageRbc = {
 }
 
 export type RelatedLink = {
-  ' rbc_news:thumbnail': {
+  'rbc_news:thumbnail': {
     copyright: string
     size_nick: string
     source: string

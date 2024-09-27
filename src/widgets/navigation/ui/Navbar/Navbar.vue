@@ -1,6 +1,8 @@
 <template>
   <v-toolbar :color="'var(--dark-green)'">
-    <v-toolbar-title class="navbar__title">{{ title }}</v-toolbar-title>
+    <v-toolbar-title class="navbar__title" @click="onOpenMain">{{
+      title
+    }}</v-toolbar-title>
     <search-input-component
       :is-visible-search="isVisibleSearch"
       :label="label"
@@ -12,18 +14,23 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import { SearchInput as SearchInputComponent } from '@/features'
+import { Routes } from '@/shared'
 export type NavbarProps = {
   title: string
   label: string
 }
-
 defineProps<NavbarProps>()
+const router = useRouter()
+
 const isVisibleSearch = ref(false)
 
 const onChangeVisibleSearch = () => {
   isVisibleSearch.value = !isVisibleSearch.value
 }
+const onOpenMain = () => {
+  router.push({ name: Routes.INDEX })
+}
 </script>
-@/features

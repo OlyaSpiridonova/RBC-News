@@ -9,7 +9,7 @@
     </div>
 
     <div class="d-flex flex-no-wrap justify-space-between align-center pa-2">
-      <span class="card__title">{{ title }}</span>
+      <span class="card__title" @click="onViewNews(id)">{{ title }}</span>
     </div>
     <div
       class="card__anons d-flex flex-no-wrap justify-space-between align-center pa-2"
@@ -22,8 +22,10 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { decodeHtml } from '@/shared'
+import { useRouter } from 'vue-router'
+import { decodeHtml, Routes } from '@/shared'
 export type CardProps = {
+  id: string
   title: string
   anons: string
   text: string
@@ -33,10 +35,15 @@ export type CardProps = {
   autor: string
 }
 const props = defineProps<CardProps>()
+const router = useRouter()
 
 const image = computed(
   () =>
     props.image ||
     'https://s.rbk.ru/v10_rbcnews_static/current/images/rbc-share.png',
 )
+
+const onViewNews = (id: string) => {
+  router.push({ name: Routes.NEWS_VIEW, params: { id } })
+}
 </script>

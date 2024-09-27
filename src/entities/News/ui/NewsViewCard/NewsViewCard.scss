@@ -1,0 +1,11 @@
+.news-view {
+  &__title {
+    font-size: 21px;
+    font-weight: 600;
+  }
+  &-formatted-text {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    word-break: break-all;
+  }
+}

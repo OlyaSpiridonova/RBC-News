@@ -1,4 +1,7 @@
 .list-cards {
+  &__sort {
+    padding-top: 16px;
+  }
   &__pagination {
     display: flex;
     justify-content: center;
